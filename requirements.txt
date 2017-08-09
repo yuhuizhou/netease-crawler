@@ -1,0 +1,14 @@
+beautifulsoup4==4.4.1
+celery==3.1.25
+celery-with-redis==3.0
+decorator==4.0.6
+kombu==3.0.37
+lxml==3.5.0
+redis==2.10.5
+requests==2.9.1
+selenium==3.4.3
+simplejson==3.8.1
+SQLAlchemy==1.1.13
+urllib3==1.13.1
+pycrypto==2.6.1
+
