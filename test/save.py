@@ -2,7 +2,7 @@
 #from db.db_basic import db_session
 from db_basic import engine
 from sqlalchemy.orm import *
-from db.table import *
+from table import *
 
 def save_style(styles):
 	conn=engine.connect()

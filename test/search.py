@@ -1,8 +1,8 @@
 # -*-coding:utf-8 -*-
 from sqlalchemy import text
 from db_basic import db_session
-from db.table import *
-from db.model import *
+from table import *
+from model import *
 
 '''def get_song_link():
 	return db_session.query(Comment.song_link).filter(Comment.likecount>=10000).all()

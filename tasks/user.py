@@ -16,5 +16,5 @@ def crawl_user_information(ulink):
 @app.task(ignore_result=True)
 def execute_user_task():
     ulinks=get_user_link()
-    	for ulink in ulinks[0:10]:
-            app.send_task('tasks.user.crawl_user_information', args=(ulink[0],), queue='user_crawler', routing_key='user_info')
+    for ulink in ulinks[0:10]:
+        app.send_task('tasks.user.crawl_user_information', args=(ulink[0],), queue='user_crawler', routing_key='user_info')

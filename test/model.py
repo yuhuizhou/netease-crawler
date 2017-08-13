@@ -1,8 +1,8 @@
 # -*-coding:utf-8 -*-
 
-from db.db_basic import Base
-from db.table import *
-from db.table import style
+from db_basic import Base
+from table import *
+from table import style
 
 class Style(Base):
 	__table__ = style

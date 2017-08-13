@@ -4,6 +4,9 @@ from bs4 import BeautifulSoup
 import sys
 import json
 import requests
+from save import save_style
+from search import get_style_link,get_max_num
+from table import metadata,engine
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -28,6 +31,7 @@ def get_style(basic_url):
             dict={'name':a['data-cat'],'link':link,'max_page':max_page}
             detail.append(dict)
     return detail
+
 
 def get_playlist(url):
     html=requests.get(url).text
@@ -62,8 +66,22 @@ def get_song(p_link):
     return detail
 
 if __name__ == '__main__':
-    headers={'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36'}
-    basic_url='http://music.163.com/discover/playlist/'
-    get_style(basic_url)
+    #metadata.drop_all(engine)
+    #headers={'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36'}
+    #basic_url='http://music.163.com/discover/playlist/'
+    #detail=get_style(basic_url)
+    #print detail
+    #save_style(detail)
+    links=get_style_link()
+    for link in links[0:10]:
+       print link[0]
+       num=get_max_num(link[0])
+       print num[0]
+       print type(num[0])
+       #num[0]=str(num[0])
+       #num=num[0].encode('utf-8')
+       #num=int(num)
+       #print type(num)
+       #print type('fajkasdf{}'.format(num*35))
     #get_playlist(basic_url)
     

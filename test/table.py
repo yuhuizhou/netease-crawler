@@ -1,7 +1,7 @@
 # -*-coding:utf-8 -*-
 from sqlalchemy import Table,Column,Integer,String,ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
-from db.db_basic import metadata,engine
+from db_basic import metadata,engine
 
 style=Table('style',metadata,
 	Column('id',Integer,primary_key=True,autoincrement=True),
