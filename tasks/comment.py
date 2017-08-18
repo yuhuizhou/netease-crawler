@@ -32,7 +32,7 @@ def crawl_playlist_by_page(link,page_num):
 def execute_playlist_task():
 	style_links=get_style_link()
 	for link in style_links[0:1]:
-		max_page=int(get_max_num(link[0])[0].encode('utf-8'))
+		max_page=get_max_num(link[0])
 		for page_num in range(0,max_page+1):
 			app.send_task('tasks.comment.crawl_playlist_by_page', args=(link[0],page_num,), queue='playlist_crawler', routing_key='playlist_info')
 

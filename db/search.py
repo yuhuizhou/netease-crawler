@@ -4,19 +4,16 @@ from db_basic import db_session
 from db.table import *
 from db.model import *
 
-'''def get_song_link():
-	return db_session.query(Comment.song_link).filter(Comment.likecount>=10000).all()
 
-def get_singer_link(song_link):
-	return db_session.query(Song.singer_link).filter(Song.slink==slink).all()'''
 def get_style_link():
 	return db_session.query(Style.link).all()
 
 def get_max_num(link):
-	return db_session.query(Style.max_page).filter(Style.link==link).first()
+	max_num=db_session.query(Style.max_page).filter(Style.link==link).first()
+	return int((max_num)[0].encode('utf-8'))
 
 def get_user_link():
-	return db_session.query(Comment.user_link).filter(Comment.likecount>=10000).all()
+	return db_session.query(Comment.user_link).all()
 
 
 

@@ -1,28 +1,38 @@
 # -*-coding:utf-8 -*-
-#from db.db_basic import db_session
+
 from db_basic import engine
 from sqlalchemy.orm import *
 from db.table import *
+from decorators.decorator import db_save_decorator
 
+@db_save_decorator
 def save_style(styles):
 	conn=engine.connect()
 	data=style.insert()
-	result=conn.execute(data,styles)
+	conn.execute(data,styles)
 
+@db_save_decorator
 def save_playlist(playlists):
 	conn=engine.connect()
 	data=playlist.insert()
-	result=conn.execute(data,playlists)
-	
+	conn.execute(data,playlists)
+
+@db_save_decorator
 def save_song(songs):
 	conn=engine.connect()
 	data=song.insert()
-	result=conn.execute(data,songs)
+	conn.execute(data,songs)
 
+@db_save_decorator
 def save_comment(comments):
 	conn=engine.connect()
 	data=comment.insert()
-	result=conn.execute(data,comments)
+	conn.execute(data,comments)
 
-#def save_user_info(info):
+@db_save_decorator
+def save_user_info(info):
+	conn=engine.connect()
+	data=user.insert()
+	conn.execute(data,info)
+
 

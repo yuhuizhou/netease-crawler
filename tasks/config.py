@@ -27,4 +27,5 @@ CELERY_QUEUES=(
     Queue('playlist_crawler', exchange=Exchange('playlist_crawler', type='direct'),routing_key='playlist_info'),
     Queue('comment_crawler', exchange=Exchange('comment_crawler', type='direct'),routing_key='comment_info'),
     Queue('song_crawler', exchange=Exchange('song_crawler', type='direct'),routing_key='song_info'),
+    Queue('user_crawler', exchange=Exchange('user_crawler', type='direct'),routing_key='user_info'),
 )

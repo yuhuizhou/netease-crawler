@@ -1,24 +1,23 @@
 # -*- coding:utf8 -*-
 
-from bs4 import BeautifulSoup
 import sys
 import json
-import requests
+from bs4 import BeautifulSoup
+from parse.page import get_soup
+from decorators.decorator import parse_decorator
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+@parse_decorator(0)
 def get_max_page(style_link):
-    html=requests.get(style_link).text
-    soup = BeautifulSoup(html, 'lxml')
+    soup=get_soup(style_link)
     max_page=soup.find('span',{'class':'zdot'}).find_next_sibling('a',{'class':'zpgi'}).string
     return max_page
 
-
-
+@parse_decorator([])
 def get_style(basic_url):
-    html=requests.get(basic_url).text
     detail=[]
-    soup = BeautifulSoup(html, 'lxml')
+    soup = get_soup(basic_url)
     dls=soup.find_all('dl',{'class':'f-cb'})
     for dl in dls:
         alists=dl.find('dd').find_all('a',{'class':'s-fc1'})
@@ -29,10 +28,10 @@ def get_style(basic_url):
             detail.append(dict)
     return detail
 
+@parse_decorator([])
 def get_playlist(url):
-    html=requests.get(url).text
     detail=[]
-    soup = BeautifulSoup(html, 'lxml')
+    soup = get_soup(url)
     lis= soup.find('ul',{'class':'m-cvrlst f-cb'}).find_all('li')
     for li in lis:
         href = 'http://music.163.com'+li.find('a',{'class': 'msk'})['href']
@@ -42,10 +41,9 @@ def get_playlist(url):
         detail.append(dict)
     return detail
 
-
+@parse_decorator([])
 def get_song(p_link):
-    html=requests.get(p_link).content
-    soup = BeautifulSoup(html, 'lxml')
+    soup = soup = get_soup(p_link)
     string=soup.find('textarea').string
     json_dict=json.loads(string)
     detail=[]
@@ -61,9 +59,5 @@ def get_song(p_link):
         detail.append(dict)
     return detail
 
-if __name__ == '__main__':
-    headers={'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36'}
-    basic_url='http://music.163.com/discover/playlist/'
-    get_style(basic_url)
-    #get_playlist(basic_url)
+
     

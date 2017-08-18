@@ -18,5 +18,9 @@ class Song(Base):
 class Comment(Base):
 	__table__ = comment
 
+class User(Base):
+	__table__ = user
+
+
 
 

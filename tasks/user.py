@@ -6,8 +6,6 @@ from parse.user import get_user_info
 from db.save import save_user_info
 from db.search import get_user_link
 
-
-
 @app.task(ignore_result=True)
 def crawl_user_information(ulink):
     info=get_user_info(ulink)
