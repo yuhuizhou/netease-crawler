@@ -1,12 +1,16 @@
-# NeteaseCrawler
+# netease crawler
 a distributed crawler base on celery
 
 
-#依赖版本 具体见requirements.txt
+#依赖
+#具体见requirements.txt
 
 MySQL 5.7
+
 Python 2.7
+
 celery==3.1.25
+
 redis==2.10.5
 
 
