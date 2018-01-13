@@ -1,9 +1,9 @@
 # -*- coding:utf8 -*-
 
-import requests
-import json
 import os
+import json
 import base64
+import requests
 from Crypto.Cipher import AES
 
 def aesEncrypt(text, secKey):

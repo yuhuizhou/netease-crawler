@@ -2,7 +2,6 @@
 a distributed crawler base on celery
 
 
-#依赖
 #具体见requirements.txt
 
 MySQL 5.7

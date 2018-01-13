@@ -4,7 +4,7 @@ import sys
 import json
 from bs4 import BeautifulSoup
 from parse.page import get_soup
-from decorators.decorator import parse_decorator
+from decorator import parse_decorator
 reload(sys)
 sys.setdefaultencoding('utf-8')
 

@@ -3,7 +3,7 @@
 import requests
 import json
 from parse.params import get_params
-from decorators.decorator import parse_decorator
+from decorator import parse_decorator
 
 @parse_decorator([])
 def get_comment(slink):

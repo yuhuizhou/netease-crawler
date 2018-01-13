@@ -4,8 +4,8 @@ import time
 import requests
 from headers import headers
 from bs4 import BeautifulSoup
-from logger.log import crawler
-from decorators.decorator import parse_decorator,timeout_decorator
+from log import crawler
+from decorator import parse_decorator,timeout_decorator
 
 
 
