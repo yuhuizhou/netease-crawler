@@ -9,6 +9,6 @@ requests==2.9.1
 selenium==3.4.3
 simplejson==3.8.1
 SQLAlchemy==1.1.13
-urllib3==1.13.1
+urllib3==1.26.5
 pycrypto==2.6.1
 
